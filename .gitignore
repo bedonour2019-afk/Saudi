@@ -1,0 +1,27 @@
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userprefs
+*.log
+*.vspscc
+*.vssscc
+.vscode/
+.idea/
+*.DS_Store
+*.db
+*.sqlite
+*.sqlite3
+*.pdb
+*.cache
+*.tmp
+*.dll
+*.exe
+*.nupkg
+*.nuget.props
+*.nuget.targets
+# ASP.NET Core
+wwwroot/*.log
+wwwroot/*.js.map
+wwwroot/*.css.map

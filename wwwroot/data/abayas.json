@@ -1,0 +1,80 @@
+[
+  {
+    "Id": 1,
+    "Title": "عباية الجوهرة الملكية",
+    "Category": "royal",
+    "CategoryName": "الكولكشن الملكي",
+    "Fabric": "كريب صالونا كوري نخب أول",
+    "Description": "قصّة كلوش واسعة بانسيابية ساحرة، وتطريز كمبيوتر يدوي على الأكمام بخيوط الحرير الذهبي الهادئ وسواد فاحم ممتد.",
+    "Badge": "الأكثر طلباً",
+    "BadgeIcon": "fa-crown",
+    "Sizes": "50-60",
+    "ImageUrl": "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&w=800&q=80",
+    "PriceInfo": "متوفرة بمقاسات 50-60"
+  },
+  {
+    "Id": 2,
+    "Title": "عباية أميرة الشرق",
+    "Category": "occasions",
+    "CategoryName": "كولكشن السهرات والمناسبات",
+    "Fabric": "حرير كريب ناعم مع كريستال تشيكي",
+    "Description": "إطلالة آسرة مع تطريز لؤلؤي أسود وكريستال تشيكي خفيف على الياقة والأطراف، بقماش فاخر لا يتكسر ومقاوم للتجاعيد.",
+    "Badge": "تصميم حصري",
+    "BadgeIcon": "fa-sparkles",
+    "Sizes": "52-58",
+    "ImageUrl": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80",
+    "PriceInfo": "إصدار محدود"
+  },
+  {
+    "Id": 3,
+    "Title": "بشت نجد الخليجي الملكي",
+    "Category": "bisht",
+    "CategoryName": "قسم البشت والكبك",
+    "Fabric": "قماش انترنت كوري أصلي فاحم",
+    "Description": "قصّة البشت الفضفاضة الملكية مع زري قصب كوري فاخر لا يتغير لونه، تصميم يمنحكِ الهيبة والفخامة في كل خطوة.",
+    "Badge": "بشت فخم",
+    "BadgeIcon": "fa-fire",
+    "Sizes": "52-60",
+    "ImageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+    "PriceInfo": "متوفر بمقاسات 52-60"
+  },
+  {
+    "Id": 4,
+    "Title": "عباية الهدوء العملية",
+    "Category": "casual",
+    "CategoryName": "كولكشن الدوام واليومي",
+    "Fabric": "كريب صيفي بارد مضاد للتجعد",
+    "Description": "قصّة نص كلوش مريحة للحركة اليومية وساعات العمل الطويلة، أزرار طق طق مخفية عالية الجودة مع سواد مريح وثابت.",
+    "Badge": "راحة يومية",
+    "BadgeIcon": "fa-check",
+    "Sizes": "50-60",
+    "ImageUrl": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80",
+    "PriceInfo": "خفيفة ومريحة"
+  },
+  {
+    "Id": 5,
+    "Title": "عباية زمردة الكريب",
+    "Category": "royal",
+    "CategoryName": "الكولكشن الملكي",
+    "Fabric": "كريب كوري ليزري عالي الجودة",
+    "Description": "أكمام بتصميم مطرز بنعومة بالغة، مع قصة مستقيمة ومريحة تعطي طولاً ورشاقة مذهلة ووقاراً لا يضاهى.",
+    "Badge": "سواد فاحم",
+    "BadgeIcon": "fa-star",
+    "Sizes": "50-60",
+    "ImageUrl": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
+    "PriceInfo": "متوفرة بمقاسات كاملة"
+  },
+  {
+    "Id": 6,
+    "Title": "طقم طرحة ونقاب ليزر ملكي",
+    "Category": "scarves",
+    "CategoryName": "الطرح والنقابات",
+    "Fabric": "شيفون ليزر ياباني معالج",
+    "Description": "شيلات وطرح ثابتة على الرأس لا تنزلق، بسواد داكن ونعومة حريرية متناسقة مع كولكشن العبايات الملكية للبيت السعودي.",
+    "Badge": "نعومة فائقة",
+    "BadgeIcon": "fa-gem",
+    "Sizes": "مقاس قياسي",
+    "ImageUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80",
+    "PriceInfo": "تثبيت ناعم ومريح"
+  }
+]

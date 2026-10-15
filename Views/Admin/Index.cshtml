@@ -1,0 +1,204 @@
+@model List<Saudi_House.Models.Abaya>
+@{
+    ViewData["Title"] = "لوحة التحكم - إدارة عبايات البيت السعودي";
+    Layout = "_Layout";
+}
+
+<div class="container py-4 my-4">
+
+    <!-- Top Admin Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 p-3 mb-4 rounded-4" style="background: rgba(20, 20, 26, 0.8); border: 1px solid var(--gold-border);">
+        <div class="d-flex align-items-center gap-3">
+            <img src="~/images/logo.png" alt="البيت السعودي" style="max-height: 42px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));" />
+            <div>
+                <h3 class="font-amiri text-gold mb-0">لوحة تحكم معرض البيت السعودي</h3>
+                <span class="text-champagne-muted fs-sm">إدارة وإضافة وحذف الموديلات المعروضة بالموقع</span>
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="/" target="_blank" class="btn btn-outline-gold btn-sm">
+                <i class="fa-solid fa-store me-1"></i> عرض المتجر للزوار
+            </a>
+            <a asp-action="Logout" class="btn btn-sm btn-outline-danger">
+                <i class="fa-solid fa-right-from-bracket me-1"></i> تسجيل الخروج
+            </a>
+        </div>
+    </div>
+
+    <!-- Success Feedback Alert -->
+    @if (TempData["AdminSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show text-center mb-4" style="background: rgba(212, 175, 55, 0.2); border: 1.5px solid var(--gold-rich); color: #fff;" role="alert">
+            <i class="fa-solid fa-circle-check text-gold fs-5 me-2"></i>
+            <strong>@TempData["AdminSuccess"]</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Quick Stats Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="p-3 rounded-4 text-center" style="background: var(--bg-card); border: 1px solid var(--gold-border);">
+                <div class="text-gold fs-sm fw-bold mb-1">إجمالي العبايات بالمعرض</div>
+                <div class="font-cinzel text-white fs-2 fw-bold">@(Model?.Count ?? 0)</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 rounded-4 text-center" style="background: var(--bg-card); border: 1px solid var(--gold-border);">
+                <div class="text-gold fs-sm fw-bold mb-1">حالة المتجر</div>
+                <div class="text-success fs-5 fw-bold"><i class="fa-solid fa-circle text-success fs-xs me-1"></i> متصل ويعمل بنجاح</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 rounded-4 text-center" style="background: var(--bg-card); border: 1px solid var(--gold-border);">
+                <div class="text-gold fs-sm fw-bold mb-1">فرع العرض</div>
+                <div class="text-white fs-6 fw-bold">طنطا - شارع حسان تقاطع عمر بن عبد العزيز</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- ADD ABAYA FORM -->
+        <div class="col-lg-5">
+            <div class="size-guide-card">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <i class="fa-solid fa-plus-circle text-gold fs-4"></i>
+                    <h4 class="font-amiri text-gold mb-0">إضافة عباية جديدة</h4>
+                </div>
+                <p class="text-champagne-muted fs-sm mb-4">
+                    املئي بيانات الموديل الجديد، وستظهر فوراً لزائرات الموقع.
+                </p>
+
+                <form asp-action="Add" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label text-gold fs-sm">اسم أو موديل العباية *</label>
+                        <input type="text" name="Title" class="size-calc-input" placeholder="مثال: عباية الجوهرة الملكية" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-gold fs-sm">القسم أو الكولكشن *</label>
+                        <select name="Category" class="size-calc-input">
+                            <option value="royal">عبايات ملكية سوداء</option>
+                            <option value="occasions">مناسبات وأعراس</option>
+                            <option value="casual">دوام وخروج راقي</option>
+                            <option value="bisht">بشت خليجي وكاب</option>
+                            <option value="scarves">طرح ونقابات فاخرة</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-gold fs-sm">نوع القماش وسواد الليزر *</label>
+                        <input type="text" name="Fabric" class="size-calc-input" placeholder="مثال: كريب صالونا كوري نخب أول" required />
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <label class="form-label text-gold fs-sm">الشارة (Badge)</label>
+                            <input type="text" name="Badge" class="size-calc-input" placeholder="مثال: الأكثر طلباً" value="الأكثر طلباً" />
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label text-gold fs-sm">المقاسات المتوفرة</label>
+                            <input type="text" name="Sizes" class="size-calc-input" placeholder="مثال: 50-60" value="50-60" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-gold fs-sm">معلومات السعر أو التوفر</label>
+                        <input type="text" name="PriceInfo" class="size-calc-input" placeholder="مثال: متوفرة بمقاسات 50-60" value="متوفرة بمقاسات 50-60" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-gold fs-sm">وصف العباية والقصة والتطريز *</label>
+                        <textarea name="Description" rows="3" class="size-calc-input" placeholder="اكتبي وصفاً للقصة، الأكمام، والتطريز..." required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-gold fs-sm">رفع صورة من جهازكِ</label>
+                        <input type="file" name="imageUpload" class="size-calc-input" accept="image/*" />
+                        <small class="text-muted fs-sm mt-1 d-block">يتم حفظ الصورة تلقائياً في مجلد المعرض.</small>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-gold fs-sm">أو رابط صورة خارجي (URL)</label>
+                        <input type="url" name="ImageUrl" class="size-calc-input" placeholder="https://..." />
+                    </div>
+
+                    <button type="submit" class="btn btn-gold w-100 py-2 fs-5">
+                        <i class="fa-solid fa-check-circle me-2"></i> حفظ ونشر العباية في المتجر
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MANAGE & DELETE TABLE -->
+        <div class="col-lg-7">
+            <div class="size-guide-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-boxes-stacked text-gold fs-4"></i>
+                        <h4 class="font-amiri text-gold mb-0">قائمة العبايات المعروضة حالياً</h4>
+                    </div>
+                    <span class="badge-gold-pill">@(Model?.Count ?? 0) موديل</span>
+                </div>
+                <p class="text-champagne-muted fs-sm mb-3">
+                    يمكنكِ مراجعة الموديلات أو حذف أي موديل غير متوفر بضغطة زر واحدة.
+                </p>
+
+                <div class="table-responsive">
+                    <table class="size-table-custom">
+                        <thead>
+                            <tr>
+                                <th>الصورة</th>
+                                <th>الموديل</th>
+                                <th>القسم</th>
+                                <th>القماش</th>
+                                <th>المقاسات</th>
+                                <th>إجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                foreach (var a in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="@a.ImageUrl" alt="@a.Title" style="width: 48px; height: 58px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold-border);" onerror="this.src='/images/logo.jpg';" />
+                                        </td>
+                                        <td class="fw-bold text-white text-start">
+                                            @a.Title
+                                            <small class="d-block text-gold" style="font-size: 0.72rem;">@a.Badge</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-dark border border-gold text-gold" style="font-size: 0.72rem;">@a.CategoryName</span>
+                                        </td>
+                                        <td class="fs-sm">@a.Fabric</td>
+                                        <td class="font-cinzel fs-sm">@a.Sizes</td>
+                                        <td>
+                                            <form asp-action="Delete" method="post" onsubmit="return confirm('هل أنتِ متأكدة من حذف موديل: @a.Title نهائياً من المعرض؟');">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@a.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger px-2 py-1" title="حذف العباية">
+                                                    <i class="fa-solid fa-trash me-1"></i> حذف
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center py-5 text-champagne-muted">
+                                        لا توجد أي عبايات مسجلة حالياً. استخدمي النموذج المقابل لإضافة أول عباية!
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

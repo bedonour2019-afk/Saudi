@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - البيت السعودي | فخامة العبايات الخليجية والملكية بطنطا</title>
+    <meta name="description" content="البيت السعودي للعبايات في طنطا - أرقى وأفخم العبايات الخليجية والملكية بأجود الأقمشة الكورية وسواد فاحم لا يضاهى. شارع حسان مع عمر بن عبد العزيز." />
+    <meta name="keywords" content="البيت السعودي, عبايات طنطا, عبايات خليجية, عبايات سوداء, عبايات كريب كوري, عبايات ملكية, طنطا" />
+    <link rel="icon" type="image/jpeg" href="~/images/logo.jpg" />
+
+    <!-- Google Fonts: Cairo, Amiri, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800;900&family=Cinzel:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <!-- Bootstrap 5 RTL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="bg-luxury-black text-light">
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+
+    <!-- Announcement Bar -->
+    <aside class="luxury-announcement-bar py-2 text-center" aria-label="شريط الإعلانات">
+        <div class="container d-flex justify-content-center align-items-center gap-2 flex-wrap">
+            <span class="badge-gold-pill"><i class="fa-solid fa-sparkles text-gold me-1"></i> كولكشن الموسم الجديد</span>
+            <span class="text-champagne font-cairo fs-sm">تشكيلة العبايات الملكية بالسواد الليزري الفاحم متوفرة الآن في فرعنا بطنطا</span>
+            <a href="tel:0403288485" class="call-badge-link ms-2">
+                <i class="fa-solid fa-phone-volume ms-1"></i> 0403288485
+            </a>
+        </div>
+    </aside>
+
+    <!-- Luxury Navigation Bar -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark luxury-navbar" id="mainNavbar">
+            <div class="container">
+                <!-- Mobile Menu Toggle Button -->
+                <button class="navbar-toggler luxury-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="تبديل القائمة">
+                    <i class="fa-solid fa-bars-staggered text-gold fs-3"></i>
+                </button>
+
+                <!-- Nav Menu Items -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3 text-center">
+                        <li class="nav-item">
+                            <a class="nav-link luxury-nav-link active" href="#hero">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link luxury-nav-link" href="#collections">تشكيلاتنا الفاخرة</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link luxury-nav-link" href="#features">سر الجودة</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link luxury-nav-link" href="#sizeGuide">دليل المقاسات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link luxury-nav-link" href="#testimonials">آراء عميلاتنا</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link luxury-nav-link" href="#location">الموقع والفرع</a>
+                        </li>
+                    </ul>
+
+                    <!-- Nav Action Buttons -->
+                    <div class="d-flex align-items-center justify-content-center gap-2 mt-3 mt-lg-0">
+                        <a href="https://maps.app.goo.gl/RsD5EwnHejWipenp7" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold btn-sm d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>طنطا - شارع حسان</span>
+                        </a>
+                        <a href="tel:0403288485" class="btn btn-gold btn-sm d-flex align-items-center gap-2 pulse-gold">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>0403288485</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        @RenderBody()
+    </main>
+
+
+
+    <!-- Luxury Footer -->
+    <footer class="luxury-footer pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <!-- Col 1: About & Logo -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="~/images/logo.png" alt="البيت السعودي" style="max-height: 44px; width: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));" />
+                        <div>
+                            <span class="text-gold font-amiri fs-5 fw-bold d-block">البيت السعودي</span>
+                            <span class="text-muted-gold fs-sm">رمز الهيبة والجمال الملكي</span>
+                        </div>
+                    </div>
+                    <p class="text-champagne-muted line-height-relaxed">
+                        نقدم لكل امرأة باحثة عن التميز أرقى موديلات العبايات الخليجية والسعودية في قلب طنطا، بأفخر أنواع الأقمشة الكورية والسعودية ذات السواد الليزري الحالك وخياطة تليق بفخامتكِ.
+                    </p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://www.facebook.com/saudihouse11" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="فيسبوك البيت السعودي">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@@user4010811724083?lang=ar" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="تيك توك البيت السعودي">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://maps.app.goo.gl/RsD5EwnHejWipenp7" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="لوكيشن جوجل ماب">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </a>
+                        <a href="tel:0403288485" class="social-circle-btn" aria-label="اتصال أرضي">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-heading">روابط سريعة</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#hero"><i class="fa-solid fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#collections"><i class="fa-solid fa-chevron-left"></i> كولكشن العبايات</a></li>
+                        <li><a href="#features"><i class="fa-solid fa-chevron-left"></i> جودة الأقمشة</a></li>
+                        <li><a href="#sizeGuide"><i class="fa-solid fa-chevron-left"></i> دليل المقاسات</a></li>
+                        <li><a href="#testimonials"><i class="fa-solid fa-chevron-left"></i> آراء العميلات</a></li>
+                        <li><a href="#location"><i class="fa-solid fa-chevron-left"></i> خريطة المعرض</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Collections -->
+                <div class="col-lg-3 col-md-6 col-6">
+                    <h5 class="footer-heading">أقسام العبايات</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#collections"><i class="fa-solid fa-sparkles text-gold me-1"></i> عبايات ملكية سوداء</a></li>
+                        <li><a href="#collections"><i class="fa-solid fa-sparkles text-gold me-1"></i> عبايات مناسبات وسواريه</a></li>
+                        <li><a href="#collections"><i class="fa-solid fa-sparkles text-gold me-1"></i> بشت خليجي وكاب</a></li>
+                        <li><a href="#collections"><i class="fa-solid fa-sparkles text-gold me-1"></i> عبايات دوام يومي راقية</a></li>
+                        <li><a href="#collections"><i class="fa-solid fa-sparkles text-gold me-1"></i> طرح ونقابات حرير كوري</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Store Contact & Hours -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">معلومات الزيارة والفرع</h5>
+                    <div class="store-info-box">
+                        <div class="d-flex align-items-start gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+                            <div>
+                                <strong class="text-white">العنوان:</strong>
+                                <p class="text-champagne-muted mb-0">طنطا - شارع حسان تقاطع عمر بن عبد العزيز</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fa-solid fa-phone-volume text-gold"></i>
+                            <div>
+                                <strong class="text-white">الهاتف الأرضي:</strong>
+                                <a href="tel:0403288485" class="d-block text-gold text-decoration-none font-cinzel fw-bold">0403288485</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fa-regular fa-clock text-gold"></i>
+                            <div>
+                                <strong class="text-white">مواعيد المعرض:</strong>
+                                <p class="text-champagne-muted mb-0">يومياً من 11:00 صباحاً إلى 11:00 مساءً</p>
+                            </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/RsD5EwnHejWipenp7" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold w-100 btn-sm mt-2">
+                            <i class="fa-solid fa-route me-1"></i> اتجاهات السير على الخريطة
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-gold-subtle" />
+
+            <!-- Copyright -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center text-md-start">
+                <p class="text-muted mb-0 fs-sm">
+                    جميع الحقوق محفوظة &copy; @DateTime.Now.Year <span class="text-gold">البيت السعودي للعبايات</span> - طنطا.
+                    <a href="/Admin" class="text-secondary text-decoration-none ms-2" title="لوحة إدارة المعرض"><i class="fa-solid fa-lock" style="font-size: 0.72rem; opacity: 0.4;"></i></a>
+                </p>
+                <p class="text-muted mb-0 fs-sm">
+                    تصميم فاخر باللون الذهبي والأسود الملكي ⚜️
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Luxury JS -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

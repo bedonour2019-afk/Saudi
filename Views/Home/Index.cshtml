@@ -1,0 +1,699 @@
+@model List<Saudi_House.Models.Abaya>
+@{
+    ViewData["Title"] = "الرئيسية - أرقى العبايات الخليجية والملكية بطنطا";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="container mt-3">
+        <div class="alert alert-success alert-dismissible fade show text-center" style="background: rgba(212, 175, 55, 0.2); border: 1.5px solid var(--gold-rich); color: #fff;" role="alert">
+            <i class="fa-solid fa-circle-check text-gold fs-5 me-2"></i>
+            <strong>@TempData["SuccessMessage"]</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+}
+
+<!-- ==========================================
+     HERO SECTION
+     ========================================== -->
+<section id="hero" class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <!-- Hero Content Centered -->
+            <div class="col-lg-10 col-xl-8 hero-content text-center reveal-on-scroll">
+                
+                <!-- Majestic Gold Calligraphy Logo Centerpiece (اول حاجة تظهر في نص الصفحة) -->
+                <div class="hero-logo-centerpiece-container mb-3 reveal-scale">
+                    <img src="~/images/logo.png" alt="البيت السعودي - فخامة العبايات الملكية" class="hero-calligraphy-logo" />
+                </div>
+
+                <div class="hero-badge mx-auto">
+                    <i class="fa-solid fa-crown text-gold"></i>
+                    <span>أرقى صرح للعباية الخليجية والملكية في طنطا</span>
+                </div>
+                
+                <h1 class="hero-headline">
+                    فخامة الحشمة.. <br />
+                    <span class="gold-gradient-text">وأناقة الإطلالة الملكية</span>
+                </h1>
+                
+                <p class="hero-subheadline mx-auto">
+                    وجهتكِ الأولى في طنطا لأفخر العبايات الخليجية والسعودية بأرقى الأقمشة الكورية والسعودية الأصلية، وتفصيل يواكب أرقى صيحات الموضة المحتشمة.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="hero-actions justify-content-center">
+                    <a href="#collections" class="btn btn-gold btn-lg d-inline-flex align-items-center gap-2">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span>تصفحي كولكشن الموسم</span>
+                    </a>
+                    <a href="tel:0403288485" class="btn btn-outline-gold btn-lg d-inline-flex align-items-center gap-2">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span>اتصال بالمعرض: 0403288485</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     STATS BAR SECTION
+     ========================================== -->
+<section id="statsSection" class="stats-strip">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3">
+                <div class="stat-card reveal-on-scroll delay-100">
+                    <div class="stat-number" data-target="15" data-suffix="+">15+</div>
+                    <div class="stat-label">عاماً من الريادة والتميز</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card reveal-on-scroll delay-200">
+                    <div class="stat-number" data-target="18000" data-suffix="+">18,000+</div>
+                    <div class="stat-label">عميلة سعيدة في الدلتا</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card reveal-on-scroll delay-300">
+                    <div class="stat-number" data-target="350" data-suffix="+">350+</div>
+                    <div class="stat-label">موديل حصري متجدد</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card reveal-on-scroll delay-400">
+                    <div class="stat-number" data-target="100" data-suffix="%">100%</div>
+                    <div class="stat-label">جودة وسواد ليزري أصلي</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     COLLECTIONS SECTION
+     ========================================== -->
+<section id="collections" class="section-padding">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center reveal-on-scroll">
+            <span class="section-tag"><i class="fa-solid fa-gem"></i> كولكشن الفخامة والأناقة</span>
+            <h2 class="section-title">تشكيلات عبايات <span class="gold-gradient-text">البيت السعودي</span></h2>
+            <p class="section-description">
+                موديلات صُممت لتمنحكِ وقار الحشمة مع فخامة تفاصيل التطريز والأقمشة الكورية المختارة بعناية فائقة.
+            </p>
+
+            <div class="gold-divider-center"></div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs-wrapper reveal-on-scroll delay-100">
+            <button type="button" class="filter-tab-btn active" data-filter="all">جميع الموديلات (@(Model?.Count ?? 0))</button>
+            <button type="button" class="filter-tab-btn" data-filter="royal">عبايات ملكية سوداء</button>
+            <button type="button" class="filter-tab-btn" data-filter="occasions">مناسبات وأعراس</button>
+            <button type="button" class="filter-tab-btn" data-filter="casual">دوام وخروج راقي</button>
+            <button type="button" class="filter-tab-btn" data-filter="bisht">بشت خليجي وكاب</button>
+            <button type="button" class="filter-tab-btn" data-filter="scarves">طرح ونقابات فاخرة</button>
+        </div>
+
+        <!-- Products Grid (Dynamic from Model) -->
+        <div class="row g-4" id="abayaGrid">
+            @if (Model != null && Model.Count > 0)
+            {
+                int delayIdx = 100;
+                foreach (var abaya in Model)
+                {
+                    <div class="col-lg-4 col-md-6 abaya-item-col reveal-on-scroll delay-@delayIdx" data-category="@abaya.Category">
+                        <div class="abaya-card">
+                            <div class="abaya-img-box">
+                                <img src="@abaya.ImageUrl" alt="@abaya.Title" class="abaya-img" loading="lazy" onerror="this.src='/images/logo.jpg';" />
+                                <span class="abaya-badge">
+                                    <i class="fa-solid @(string.IsNullOrEmpty(abaya.BadgeIcon) ? "fa-sparkles" : abaya.BadgeIcon) me-1 text-gold"></i> @abaya.Badge
+                                </span>
+                                <span class="abaya-fabric-tag">@abaya.Fabric</span>
+                            </div>
+                            <div class="abaya-card-body">
+                                <span class="abaya-category">@abaya.CategoryName</span>
+                                <h3 class="abaya-title">@abaya.Title</h3>
+                                <p class="abaya-desc">@abaya.Description</p>
+                                <div class="abaya-card-footer">
+                                    <span class="text-gold fw-bold font-cairo">@abaya.PriceInfo</span>
+                                    <button type="button" class="quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"
+                                            data-title="@abaya.Title"
+                                            data-fabric="@abaya.Fabric"
+                                            data-desc="@abaya.Description"
+                                            data-badge="@abaya.Badge"
+                                            data-img="@abaya.ImageUrl">
+                                        <i class="fa-regular fa-eye me-1"></i> التفاصيل والحجز
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    delayIdx = delayIdx >= 300 ? 100 : delayIdx + 100;
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center py-5">
+                    <p class="text-champagne-muted fs-5">لا توجد عبايات معروضة حالياً. يمكنكِ إضافة موديلاتكِ الجديدة بسهولة عبر زر الإضافة أعلاه.</p>
+                </div>
+            }
+        </div>
+
+        <!-- Collections CTA Bar -->
+        <div class="mt-5 p-4 rounded-4 text-center reveal-on-scroll" style="background: rgba(212, 175, 55, 0.08); border: 1px dashed var(--gold-rich);">
+            <h4 class="font-amiri text-gold mb-2">هل تبحثين عن تصميم خاص أو تعديل مقاس معين؟</h4>
+            <p class="text-champagne-muted mb-3">نوفر لكِ في فرعنا بطنطا خدمة التعديل المجاني والتفصيل الخاص حسب رغبتكِ بدقة عالية.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="tel:0403288485" class="btn btn-gold btn-sm"><i class="fa-solid fa-phone me-1"></i> اتصلي بالمعرض 0403288485</a>
+                <a href="#location" class="btn btn-outline-gold btn-sm"><i class="fa-solid fa-location-dot me-1"></i> زوري معرضنا بطنطا</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     WHY US / FABRIC QUALITY (سر التميز)
+     ========================================== -->
+<section id="features" class="section-padding" style="background: rgba(14, 14, 18, 0.5);">
+    <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+            <span class="section-tag"><i class="fa-solid fa-award"></i> سر جودة البيت السعودي</span>
+            <h2 class="section-title">لماذا تختار عميلاتنا <span class="gold-gradient-text">البيت السعودي</span>؟</h2>
+            <p class="section-description">
+                عناية بالتفاصيل الدقيقة واختيار صارم للأقمشة لنقدم لكِ عباية تدوم سنوات ببهائها وبريقها الأصلي.
+            </p>
+            <div class="gold-divider-center"></div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-lg-3 col-md-6 reveal-on-scroll delay-100">
+                <div class="luxury-feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <h3 class="feature-card-title">سواد ليزري فاحم</h3>
+                    <p class="feature-card-desc">
+                        نستخدم أقمشة مصبوغة بتقنية الليزر الفاحم، لا تبهت ولا تتغير مع الغسيل المتكرر، لتبقى عبايتكِ جديدة دائماً.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="col-lg-3 col-md-6 reveal-on-scroll delay-200">
+                <div class="luxury-feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <h3 class="feature-card-title">أقمشة كورية نخب أول</h3>
+                    <p class="feature-card-desc">
+                        استيراد مباشر لأجود أنواع الكريب الكوري، صالونا، وحرير المدينة، أقمشة انسيابية باردة على الجسم ومريحة للغاية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="col-lg-3 col-md-6 reveal-on-scroll delay-300">
+                <div class="luxury-feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <h3 class="feature-card-title">خياطة وقصّات محترفة</h3>
+                    <p class="feature-card-desc">
+                        أيادي ماهرة متخصصة في التفصيل الخليجي، تضمن دقة الدرزات، واتزان الكلوش، وتناسق الأكمام مع قوامكِ.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="col-lg-3 col-md-6 reveal-on-scroll delay-400">
+                <div class="luxury-feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <h3 class="feature-card-title">تعديل مقاس فوري</h3>
+                    <p class="feature-card-desc">
+                        نوفر في فرع طنطا خدمة تظبيط الطول والأكمام فورياً لتستلمي عبايتكِ جاهزة تماماً دون أي عناء.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     INTERACTIVE SMART SIZE GUIDE
+     ========================================== -->
+<section id="sizeGuide" class="section-padding">
+    <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+            <span class="section-tag"><i class="fa-solid fa-ruler-combined"></i> قياسكِ المثالي</span>
+            <h2 class="section-title">دليل المقاسات <span class="gold-gradient-text">الذكي للعبايات</span></h2>
+            <p class="section-description">
+                اختاري مقاسكِ الصحيح بدقة وسهولة. أدخلي طولكِ بالسنتيمتر واكتشفي المقاس الأنسب لإطلالة محتشمة وراقية.
+            </p>
+            <div class="gold-divider-center"></div>
+        </div>
+
+        <div class="row g-4 align-items-center">
+            <!-- Calculator Input & Result -->
+            <div class="col-lg-5 reveal-left">
+                <div class="size-guide-card">
+                    <h4 class="font-amiri text-gold mb-3"><i class="fa-solid fa-calculator me-2"></i>حاسبة المقاس التفاعلية</h4>
+                    <p class="text-champagne-muted fs-sm mb-4">
+                        أدخلي طولكِ الكامل بالسنتيمتر (مثال: 162):
+                    </p>
+                    <div class="mb-3">
+                        <input type="number" id="userHeightInput" class="size-calc-input text-center" placeholder="أدخلي الطول بالـ سم (145 - 185)" min="140" max="190" value="162" />
+                    </div>
+                    <button type="button" id="calcSizeBtn" class="btn btn-gold w-100 mb-4">
+                        <i class="fa-solid fa-wand-magic-sparkles me-2"></i> احسبي مقاسي الموصى به
+                    </button>
+
+                    <div class="size-result-box">
+                        <span class="text-gold fs-sm fw-bold">المقاس الخليجي المقترح لكِ هو:</span>
+                        <div class="size-recommended-number" id="recommendedSize">54</div>
+                        <div class="text-white fw-bold" id="recommendedLength">طول العباية: 54 إنش</div>
+                        <p class="text-champagne-muted fs-sm mt-2 mb-0" id="sizeNote">
+                            المقاس الأكثر طلباً 54 يناسب معظم الأطوال مع تغطية كاملة مريحة وتناسب الحذاء.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Size Comparison Table -->
+            <div class="col-lg-7 reveal-right">
+                <div class="size-guide-card">
+                    <h4 class="font-amiri text-gold mb-3"><i class="fa-solid fa-table-list me-2"></i>جدول المقاسات الخليجية المعتمدة</h4>
+                    <p class="text-champagne-muted fs-sm mb-3">
+                        جميع المقاسات في البيت السعودي مأخوذة وفق المعايير الخليجية الدقيقة (طول العباية بالإنش):
+                    </p>
+                    <div class="table-responsive">
+                        <table class="size-table-custom">
+                            <thead>
+                                <tr>
+                                    <th>المقاس</th>
+                                    <th>الطول المناسب (سم)</th>
+                                    <th>طول العباية (إنش)</th>
+                                    <th>عرض الصدر (إنش)</th>
+                                    <th>طول الكم (إنش)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong class="text-gold">50</strong></td>
+                                    <td>148 - 153 سم</td>
+                                    <td>50</td>
+                                    <td>21</td>
+                                    <td>26</td>
+                                </tr>
+                                <tr>
+                                    <td><strong class="text-gold">52</strong></td>
+                                    <td>154 - 158 سم</td>
+                                    <td>52</td>
+                                    <td>22</td>
+                                    <td>27</td>
+                                </tr>
+                                <tr>
+                                    <td><strong class="text-gold">54</strong></td>
+                                    <td>159 - 163 سم</td>
+                                    <td>54</td>
+                                    <td>23</td>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <td><strong class="text-gold">56</strong></td>
+                                    <td>164 - 168 سم</td>
+                                    <td>56</td>
+                                    <td>24</td>
+                                    <td>28.5</td>
+                                </tr>
+                                <tr>
+                                    <td><strong class="text-gold">58</strong></td>
+                                    <td>169 - 173 سم</td>
+                                    <td>58</td>
+                                    <td>25</td>
+                                    <td>29</td>
+                                </tr>
+                                <tr>
+                                    <td><strong class="text-gold">60</strong></td>
+                                    <td>174 - 180 سم</td>
+                                    <td>60</td>
+                                    <td>26</td>
+                                    <td>30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     TESTIMONIALS SECTION (آراء العميلات)
+     ========================================== -->
+<section id="testimonials" class="section-padding" style="background: rgba(14, 14, 18, 0.4);">
+    <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+            <span class="section-tag"><i class="fa-solid fa-heart"></i> ثقة عميلاتنا الغالية</span>
+            <h2 class="section-title">ماذا قالوا عن <span class="gold-gradient-text">البيت السعودي</span>؟</h2>
+            <p class="section-description">
+                فخورون بثقة آلاف الأميرات في طنطا ومحافظات الدلتا على مدار سنوات.
+            </p>
+            <div class="gold-divider-center"></div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Review 1 -->
+            <div class="col-lg-4 col-md-6 reveal-on-scroll delay-100">
+                <div class="testimonial-card">
+                    <div class="client-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="client-quote">
+                        "بصراحة سواد العباية من البيت السعودي خيالي، اشتريت كريب صالونا الملكي وبغسلها وبتفضل سودة كأنها لسه طالعة من المحل حالاً. التعامل راقي جداً وناس محترمة."
+                    </p>
+                    <div class="client-info">
+                        <div class="client-avatar">س.ع</div>
+                        <div>
+                            <div class="client-name">سارة عبد الرحمن</div>
+                            <div class="client-location">طنطا - عميلة دائمة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="col-lg-4 col-md-6 reveal-on-scroll delay-200">
+                <div class="testimonial-card">
+                    <div class="client-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="client-quote">
+                        "أحلى بشت خليجي اشتريته في حياتي! القماش انسيابي ومريح جداً والتطريز بالقصب مش بيجرح ولا بيغير لون. مكانهم في شارع حسان سهل الوصول ومريح جداً في القياس."
+                    </p>
+                    <div class="client-info">
+                        <div class="client-avatar">ن.م</div>
+                        <div>
+                            <div class="client-name">نيرة محمود</div>
+                            <div class="client-location">المحلة الكبرى</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="col-lg-4 col-md-6 reveal-on-scroll delay-300">
+                <div class="testimonial-card">
+                    <div class="client-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="client-quote">
+                        "أنا دايماً بلاقي صعوبة في ضبط الطول، بس فرع البيت السعودي بطنطا ظبطوا لي المقاس بالمللي خلال دقايق. خياطة نظيفة وسعر ممتاز مقابل القماش المستورد."
+                    </p>
+                    <div class="client-info">
+                        <div class="client-avatar">د.هـ</div>
+                        <div>
+                            <div class="client-name">د. هبة الشناوي</div>
+                            <div class="client-location">طنطا</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     LOCATION & STORE DETAILS SECTION
+     ========================================== -->
+<section id="location" class="section-padding">
+    <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+            <span class="section-tag"><i class="fa-solid fa-map-pin"></i> تشرفنا زيارتكم</span>
+            <h2 class="section-title">معرض <span class="gold-gradient-text">البيت السعودي</span> بطنطا</h2>
+            <p class="section-description">
+                موقع استراتيجي وسهل الوصول في قلب مدينة طنطا - شارع حسان مع تقاطع عمر بن عبد العزيز.
+            </p>
+            <div class="gold-divider-center"></div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+            <!-- Left Info Card -->
+            <div class="col-lg-5 reveal-left">
+                <div class="location-card">
+                    <h3 class="font-amiri text-gold mb-4">بيانات الفرع والاتصال</h3>
+
+                    <!-- Address -->
+                    <div class="location-item">
+                        <div class="location-icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="location-label">العنوان بالتفصيل</div>
+                            <p class="location-val">طنطا - شارع حسان تقاطع شارع عمر بن عبد العزيز</p>
+                            <small class="text-champagne-muted">محافظة الغربية - جمهورية مصر العربية</small>
+                        </div>
+                    </div>
+
+                    <!-- Landline Phone -->
+                    <div class="location-item">
+                        <div class="location-icon-box">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div>
+                            <div class="location-label">الهاتف الأرضي المباشر</div>
+                            <a href="tel:0403288485" class="location-val text-gold text-decoration-none font-cinzel fs-4 d-block">
+                                0403288485
+                            </a>
+                            <small class="text-champagne-muted">متاح للرد والاستفسارات طوال ساعات العمل</small>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours -->
+                    <div class="location-item">
+                        <div class="location-icon-box">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div>
+                            <div class="location-label">ساعات العمل واستقبال الزائرات</div>
+                            <p class="location-val">يومياً من الساعة 11:00 صباحاً حتى 11:00 مساءً</p>
+                            <small class="text-gold">طوال أيام الأسبوع بما فيها الجمعة والعطلات</small>
+                        </div>
+                    </div>
+
+                    <!-- Map Actions -->
+                    <div class="d-flex flex-column gap-2 mt-4">
+                        <a href="https://maps.app.goo.gl/RsD5EwnHejWipenp7" target="_blank" rel="noopener noreferrer" class="btn btn-gold w-100">
+                            <i class="fa-solid fa-diamond-turn-right me-2"></i> فتح اللوكيشن على خرائط Google
+                        </a>
+                        <a href="tel:0403288485" class="btn btn-outline-gold w-100">
+                            <i class="fa-solid fa-phone me-2"></i> اتصال مباشر بالفرع
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Map Embed -->
+            <div class="col-lg-7 reveal-right">
+                <div class="map-embed-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.721469037418!2d31.001664!3d30.795856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79c23178be3e7%3A0xd6891eb7617c0be5!2z2LTYp9ix2Lkg2K3Ys9in2YYsINi32YbYt9in2Iwg2YXYrdin2YHYuNipINin2YTYutix2KjZitip!5e0!3m2!1sar!2seg!4v1700000000000!5m2!1sar!2seg" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 420px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="خريطة موقع البيت السعودي بطنطا">
+                    </iframe>
+
+                    <div class="map-overlay-card">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-map-location-dot text-gold fs-3"></i>
+                            <div>
+                                <strong class="text-white">البيت السعودي للعبايات</strong>
+                                <p class="text-champagne-muted mb-0 fs-sm">طنطا - شارع حسان مع عمر بن عبد العزيز</p>
+                            </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/RsD5EwnHejWipenp7" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+                            <i class="fa-solid fa-location-arrow me-1"></i> ابدأ التوجيه
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     SOCIAL CHANNELS SECTION
+     ========================================== -->
+<section id="social" class="section-padding" style="background: rgba(14, 14, 18, 0.6);">
+    <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+            <span class="section-tag"><i class="fa-solid fa-hashtag"></i> تابعي إطلالاتنا الحصرية</span>
+            <h2 class="section-title">كوني أول من يرى <span class="gold-gradient-text">الموديلات الجديدة</span></h2>
+            <p class="section-description">
+                انضمي لآلاف المتابعات على صفحاتنا الرسمية وشاهدي فيديوهات العبايات وتفاصيل الأقمشة مباشرة.
+            </p>
+            <div class="gold-divider-center"></div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Facebook Card -->
+            <div class="col-md-6 col-lg-5 reveal-on-scroll delay-100">
+                <a href="https://www.facebook.com/saudihouse11" target="_blank" rel="noopener noreferrer" class="social-channel-card">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="social-icon-large fb-icon-large">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <span class="text-gold fs-sm fw-bold">صفحة الفيسبوك الرسمية</span>
+                            <h4 class="text-white font-amiri mb-1">البيت السعودي - saudihouse11</h4>
+                            <p class="text-champagne-muted mb-0 fs-sm">تحديثات يومية بالموديلات والأسعار والعروض</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gold fs-5"></i>
+                </a>
+            </div>
+
+            <!-- TikTok Card -->
+            <div class="col-md-6 col-lg-5 reveal-on-scroll delay-200">
+                <a href="https://www.tiktok.com/@@user4010811724083?lang=ar" target="_blank" rel="noopener noreferrer" class="social-channel-card">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="social-icon-large tiktok-icon-large">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <div>
+                            <span class="text-gold fs-sm fw-bold">حساب التيك توك الرسمي</span>
+                            <h4 class="text-white font-amiri mb-1">فيديوهات حية للكولكشن</h4>
+                            <p class="text-champagne-muted mb-0 fs-sm">شاهدي حركة القماش واللمعان الفاحم بالفيديو</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gold fs-5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     BOOKING / INQUIRY FORM MODAL & SECTION
+     ========================================== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 reveal-scale">
+                <div class="size-guide-card text-center">
+                    <img src="~/images/logo.png" alt="البيت السعودي" style="max-height: 50px; width: auto; object-fit: contain; margin-bottom: 15px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));" />
+                    <h3 class="font-amiri text-gold mb-2">استفسري أو احجزي موعد قياس خاص</h3>
+                    <p class="text-champagne-muted fs-sm mb-4">
+                        اتركي بياناتكِ وسيقوم فريق المبيعات بالتواصل معكِ فوراً لتجهيز الموديلات والمقاسات المطلوبة قبل زيارتكِ للمعرض.
+                    </p>
+
+                    <form id="bookingForm" class="row g-3 text-start">
+                        <div class="col-md-6">
+                            <label class="form-label text-gold fs-sm">الاسم الكريم</label>
+                            <input type="text" id="clientName" class="size-calc-input" placeholder="مثال: منى أحمد" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-gold fs-sm">رقم الهاتف / الواتساب</label>
+                            <input type="tel" id="clientPhone" class="size-calc-input text-end" placeholder="مثال: 01xxxxxxxxx" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-gold fs-sm">الموديل أو التشكيلة المهتمة بها</label>
+                            <select class="size-calc-input">
+                                <option>عبايات ملكية سوداء</option>
+                                <option>عبايات مناسبات وسواريه</option>
+                                <option>بشت خليجي فخم</option>
+                                <option>عبايات دوام وخروج</option>
+                                <option>طرح ونقابات فاخرة</option>
+                                <option>تفصيل خاص بمقاساتي</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-gold fs-sm">موعد الزيارة المتوقع لمعرض طنطا</label>
+                            <input type="text" class="size-calc-input" placeholder="مثال: اليوم مساءً أو يوم الخميس" />
+                        </div>
+                        <div class="col-12 mt-4 text-center">
+                            <button type="submit" class="btn btn-gold btn-lg px-5">
+                                <i class="fa-solid fa-paper-plane me-2"></i> تأكيد وحجز الاستفسار
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="bookingFeedback"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     QUICK VIEW PRODUCT MODAL (للزوار)
+     ========================================== -->
+<div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content luxury-modal-content">
+            <div class="modal-header luxury-modal-header d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-crown text-gold"></i>
+                    <h5 class="modal-title font-amiri text-gold mb-0" id="modalTitle">تفاصيل العباية الملكية</h5>
+                </div>
+                <button type="button" class="btn-close-gold" data-bs-dismiss="modal" aria-label="إغلاق">&times;</button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-5 text-center">
+                        <div class="position-relative rounded-4 overflow-hidden border border-gold" style="border-color: var(--gold-border) !important;">
+                            <img id="modalImg" src="~/images/logo.jpg" alt="تفاصيل الموديل" class="img-fluid" style="object-fit: cover; max-height: 380px; width: 100%;" />
+                            <span id="modalBadge" class="abaya-badge">الأكثر طلباً</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <span class="badge-gold-pill mb-2 d-inline-block">البيت السعودي - طنطا</span>
+                        <h4 class="font-amiri text-white mb-2" id="modalSubTitle">مواصفات الفخامة والقماش</h4>
+                        
+                        <div class="p-3 rounded-3 mb-3" style="background: rgba(212, 175, 55, 0.08); border-right: 3px solid var(--gold-rich);">
+                            <div class="text-gold fw-bold fs-sm mb-1"><i class="fa-solid fa-feather me-1"></i> نوع القماش:</div>
+                            <div class="text-white" id="modalFabric">كريب صالونا كوري نخب أول</div>
+                        </div>
+
+                        <p class="text-champagne-muted line-height-relaxed" id="modalDesc">
+                            وصف تفصيلي للقصة والدرزات وسواد الليزر الفاحم.
+                        </p>
+
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="fs-sm text-gold fw-bold">المقاسات المتوفرة:</div>
+                            <div class="d-flex gap-2">
+                                <span class="badge bg-dark border border-gold text-gold">50</span>
+                                <span class="badge bg-dark border border-gold text-gold">52</span>
+                                <span class="badge bg-dark border border-gold text-gold">54</span>
+                                <span class="badge bg-dark border border-gold text-gold">56</span>
+                                <span class="badge bg-dark border border-gold text-gold">58</span>
+                                <span class="badge bg-dark border border-gold text-gold">60</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+                            <a href="tel:0403288485" class="btn btn-gold flex-grow-1 text-center">
+                                <i class="fa-solid fa-phone-volume me-1"></i> استفسار هاتفي 0403288485
+                            </a>
+                            <a href="https://maps.app.goo.gl/RsD5EwnHejWipenp7" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold flex-grow-1 text-center">
+                                <i class="fa-solid fa-location-dot me-1"></i> تجربة الموديل بالمعرض
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
